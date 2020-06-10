@@ -1,5 +1,6 @@
 #THE MONTY HALL PROBLEM MONTE CARLO STYLE
 
+#Simulation function with single input - number of contestants
 monty_monte <- function (runs) {
 #Allocate car behind one of three doors (car) and random selection of door by contestant (selected)
 doors <- data.frame("car" = sample(1:3, runs, replace=T),
@@ -8,6 +9,7 @@ doors <- data.frame("car" = sample(1:3, runs, replace=T),
 door_vec <- c(1,2,3)
 `%notin%` <- negate(`%in%`)
 
+#Functions for the open door and switching door
 open_func <- function(x,y) {
   i <- door_vec %notin% c(x,y)
   ifelse(length(door_vec[i])==1, door_vec[i], sample(door_vec[i],1))
